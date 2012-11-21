@@ -31,6 +31,7 @@
     Assertion.prototype.on = function() {
         expect(this.obj).to.be.spy();
         needCalledFlag(this);
+        var a = Array.prototype.join.call(arguments, ',');
 
         if (this.flags.always) {
             assert.apply(this, [

@@ -102,6 +102,17 @@ describe('Puer spy', function() {
         expect(spyb).to.be.called.after(spya);
     });
 
+    it('should be called on obj', function() {
+        var a = {
+            func: function() {}
+        };
+        sinon.spy(a, 'func');
+        a.func();
+        a.func.call(window);
+        expect(a.func).to.be.called.on(a);
+        expect(a.func).not.always.to.be.called.on(a);
+    });
+
     it('should be returned', function() {
         function func1() {
             return 1;
