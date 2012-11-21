@@ -103,11 +103,26 @@ describe('Puer spy', function() {
     });
 
     it('should be returned', function() {
-        function func() {
+        function func1() {
             return 1;
         }
-        var spy = sinon.spy(func);
-        spy();
-        expect(spy).to.be.returned(1);
+        var spy1 = sinon.spy(func1);
+        spy1();
+        spy1();
+        expect(spy1).to.be.returned(1);
+        expect(spy1).always.to.be.returned(1);
+
+        function func2(boolean) {
+            if (boolean) {
+                return 1;
+            } else {
+                return 2;
+            }
+        }
+        var spy2 = sinon.spy(func2);
+        spy2(true);
+        spy2(false);
+        expect(spy2).to.be.returned(1);
+        expect(spy2).not.always.to.be.returned(1);
     });
 });
