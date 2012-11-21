@@ -23,14 +23,13 @@
    * Possible assertion flags.
    */
 
-  var flags = {
+  var flags = expect.flags = {
       not: ['to', 'be', 'have', 'include', 'only']
     , to: ['be', 'have', 'include', 'only', 'not']
     , only: ['have']
     , have: ['own']
     , be: ['an']
   };
-  expect.flags = flags;
 
   function expect (obj) {
     return new Assertion(obj);
@@ -77,6 +76,12 @@
           for (var fn in Assertion.prototype) {
             if (Assertion.prototype.hasOwnProperty(fn) && fn != name) {
               this[name][fn] = bind(assertion[fn], assertion);
+            }
+          }
+          // keep the assertion chain, need flags and obj
+          for (var fn2 in assertion) {
+            if (assertion.hasOwnProperty(fn2)) {
+                this[name][fn2] = assertion[fn2];
             }
           }
         } else {
