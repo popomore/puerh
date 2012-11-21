@@ -1,7 +1,4 @@
+# Pu-erh *( 普洱: pǔ'ěr )*
 
+---
 
-```
-var spy = sinon.spy();
-expect(spy).to.be.spy;
-expect(spy).to.be.called;
-```
