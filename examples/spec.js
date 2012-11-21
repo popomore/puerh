@@ -31,6 +31,7 @@ describe('Puer spy', function() {
         spy(['a', 'b']);
         expect(spy).to.be.called.with('a');
         expect(spy).to.be.called.with(['a', 'b']);
+        expect(spy).not.always.to.be.called.with('a');
     });
 
     it('should not be called with args', function() {
@@ -49,6 +50,7 @@ describe('Puer spy', function() {
         expect(spy).to.be.called.match(/^[ab]/);
         expect(spy).to.be.called.match({a: 1});
         expect(spy).to.be.called.match(1);
+        expect(spy).not.always.to.be.called.match(/^[ab]/);
     });
 
     it('should be called some times', function() {
