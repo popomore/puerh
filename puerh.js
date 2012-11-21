@@ -9,8 +9,6 @@
     // not always to be
     flags.not.push('always');
     flags['always'] = ['to'];
-    // never to be
-    flags['never'] = ['to'];
 
     Assertion.prototype.spy = function() {
         var o = this.obj;
