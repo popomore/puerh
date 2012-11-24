@@ -1,0 +1,18 @@
+{
+  "name": "puerh",
+  "description": "",
+  "version": "0.0.1",
+  "author": "popomore <sakura9515@gmail.com>",
+  "dependencies": {
+    "sinon": "1.5.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "repository": "git://github.com/popomore/puerh.js.git",
+  "main": "./lib/puerh.js",
+  "scripts": {
+    "test": "make test"
+  }
+}
+
