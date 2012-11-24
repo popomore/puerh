@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../support/mocha.css" rel="stylesheet"></link>
+    <script src="../support/mocha.js"></script>
+    <script> mocha.setup('bdd'); </script>
+    <script src="../lib/vendor/expect.js"></script>
+    <script src="../lib/vendor/sinon.js"></script>
+    <script src="../lib/puerh.js"></script>
+    <script src="puerh.js"></script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script>
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run()
+      } else {
+        mocha.run()
+      }
+    </script>
+  </body>
+</html>
+

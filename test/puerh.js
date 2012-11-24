@@ -2,6 +2,8 @@ if (typeof require !== 'undefined') {
   sinon = require('sinon');
   puerh = require('../lib/puerh.js');
   expect = puerh.use('expect');
+} else {
+  puerh.use('expect');
 }
 
 describe('Puer spy', function() {
