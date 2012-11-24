@@ -4,7 +4,7 @@ install:
 	@echo "start install"
 	rm -rf support
 	mkdir support
-	rm lib/vendor/sinon.js
+	rm -rf lib/vendor/sinon.js
 	curl -o lib/vendor/sinon.js http://sinonjs.org/releases/sinon-1.5.0.js
 	npm install
 	ln -s ../node_modules/mocha/mocha.css support/mocha.css
