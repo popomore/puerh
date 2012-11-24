@@ -1,4 +1,4 @@
-test: install test-node test-browser
+test: test-node test-browser
 
 install:
 	@echo "start install"
