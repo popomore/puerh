@@ -2,13 +2,13 @@ test: test-node test-browser
 
 install:
 	@echo "start install"
-	rm -rf support lib/vendor
-	mkdir support lib/vendor
+	rm -rf support
+	mkdir support
+	rm lib/vendor/sinon.js
+	curl -o lib/vendor/sinon.js http://sinonjs.org/releases/sinon-1.5.0.js
 	npm install
 	ln -s ../node_modules/mocha/mocha.css support/mocha.css
 	ln -s ../node_modules/mocha/mocha.js support/mocha.js
-	curl -o lib/vendor/expect.js https://raw.github.com/popomore/expect.js/0.2.0/expect.js
-	curl -o lib/vendor/sinon.js http://sinonjs.org/releases/sinon-1.5.0.js
 
 test-node:
 	@echo "start test node"

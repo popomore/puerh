@@ -1,6 +1,6 @@
 {
   "name": "puerh",
-  "description": "",
+  "description": "a sinonjs assertion wrapper for expect",
   "version": "0.0.1",
   "author": "popomore <sakura9515@gmail.com>",
   "dependencies": {
@@ -14,6 +14,7 @@
   "main": "./lib/puerh.js",
   "scripts": {
     "test": "make test"
-  }
+  },
+  "license": "MIT"
 }
 

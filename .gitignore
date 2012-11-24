@@ -14,5 +14,5 @@ Thumbs.db
 *.pyo
 build
 node_modules
-lib/vendor
+lib/vendor/sinon.js
 support
