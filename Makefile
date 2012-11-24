@@ -7,7 +7,7 @@ install:
 	curl -o lib/vendor/expect.js https://raw.github.com/popomore/expect.js/0.2.0/expect.js
 	curl -o lib/vendor/sinon.js http://sinonjs.org/releases/sinon-1.5.0.js
 
-test: test-node
+test: install test-node
 
 test-node:
 	@./node_modules/.bin/mocha
