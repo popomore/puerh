@@ -45,9 +45,9 @@ Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
 ### to.be.called
 
-### to.be.called.with
+### to.be.called.withArgs
 
-### always.to.be.called.with
+### always.to.be.called.withArgs
 
 ### to.be.called.match
 
@@ -55,15 +55,15 @@ Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
 ### to.be.called.once
 
-### to.be.called.once.with
+### to.be.called.once.withArgs
 
 ### to.be.called.twice
 
-### to.be.called.twice.with
+### to.be.called.twice.withArgs
 
 ### to.be.called.thrice
 
-### to.be.called.thrice.with
+### to.be.called.thrice.withArgs
 
 ### to.be.called.count
 
