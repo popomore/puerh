@@ -37,16 +37,16 @@ describe('Puer spy', function() {
     var spy = sinon.spy();
     spy('a');
     spy(['a', 'b']);
-    expect(spy).to.be.called.with('a');
-    expect(spy).to.be.called.with(['a', 'b']);
-    expect(spy).not.always.to.be.called.with('a');
+    expect(spy).to.be.called.withArgs('a');
+    expect(spy).to.be.called.withArgs(['a', 'b']);
+    expect(spy).not.always.to.be.called.withArgs('a');
   });
 
   it('should not be called with args', function() {
     var spy = sinon.spy();
     spy('a');
     spy(['a', 'b']);
-    expect(spy).not.to.be.called.with('b');
+    expect(spy).not.to.be.called.withArgs('b');
   });
 
   it('should not be called with match args', function() {
@@ -79,10 +79,10 @@ describe('Puer spy', function() {
     spy3('c');
     spy3('c');
     spy3('c');
-    expect(spy3).to.be.called.once.with('a');
-    expect(spy3).to.be.called.once.with('b');
-    expect(spy3).not.to.be.called.twice.with('b');
-    expect(spy3).to.be.called.thrice.with('c');
+    expect(spy3).to.be.called.once.withArgs('a');
+    expect(spy3).to.be.called.once.withArgs('b');
+    expect(spy3).not.to.be.called.twice.withArgs('b');
+    expect(spy3).to.be.called.thrice.withArgs('c');
   });
 
   it('should be called four times', function() {
