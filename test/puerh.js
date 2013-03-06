@@ -40,7 +40,7 @@ describe('Puerh spy', function() {
     spy();
     expect(spy).not.to.be.callCount(1);
     expect(spy).to.be.called.count(2);
-    expect(spy).not.to.be.callCount(2);
+    expect(spy).not.to.be.callCount(1);
     expect(spy).to.be.callCount(2);
     spy();
     spy();
