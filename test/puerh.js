@@ -38,7 +38,9 @@ describe('Puerh spy', function() {
     var spy = sinon.spy();
     spy();
     spy();
+    expect(spy).not.to.be.callCount(1);
     expect(spy).to.be.called.count(2);
+    expect(spy).not.to.be.callCount(2);
     expect(spy).to.be.callCount(2);
     spy();
     spy();
@@ -134,13 +136,14 @@ describe('Puerh spy', function() {
     spy3('a');
     spy3('b');
     spy3('c');
+    expect(spy3).to.be.calledThrice();
+
     spy3('c');
     spy3('c');
     expect(spy3).to.be.called.once.withArgs('a');
     expect(spy3).to.be.called.once.withArgs('b');
     expect(spy3).not.to.be.called.twice.withArgs('b');
     expect(spy3).to.be.called.thrice.withArgs('c');
-    expect(spy3).to.be.calledThrice();
   });
 
   it('should be returned', function() {
