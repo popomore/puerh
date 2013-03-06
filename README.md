@@ -39,46 +39,57 @@ Puerh has contained expectjs, you can use `https://github.com/popomore/puerh/blo
 
 Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
-### not.to
-
 ### to.be.spy
 
 ### to.be.called
 
-### to.be.called.withArgs
+### not.to.be.called / to.be.notCalled
 
-### always.to.be.called.withArgs
-
-### to.be.called.match
-
-### always.to.be.called.match
-
-### to.be.called.once
-
-### to.be.called.once.withArgs
-
-### to.be.called.twice
-
-### to.be.called.twice.withArgs
-
-### to.be.called.thrice
-
-### to.be.called.thrice.withArgs
-
-### to.be.called.count
+### to.be.called.count / to.be.callCount
 
 ### to.be.called.before
 
 ### to.be.called.after
 
-### to.be.called.on
+### to.be.called.on / to.be.calledOn
 
-### always.to.be.called.on
+### always.to.be.called.on / alwaysCalledOn
+
+### to.be.called.withArgs / calledWith
+
+### to.be.called.match / calledWithMatch
+
+### to.be.called.once / to.be.calledOnce
+
+### to.be.called.once.withArgs
+
+### to.be.called.twice / to.be.calledTwice
+
+### to.be.called.twice.withArgs
+
+### to.be.called.thrice / to.be.calledThrice
+
+### to.be.called.thrice.withArgs
+
+### always.to.be.called.withArgs / alwaysCalledWith
+
+### neverCalledWith
+
+### calledWithExactly
+
+### alwaysCalledWithExactly
+
+### always.to.be.called.match / alwaysCalledWithMatch
+
+### neverCalledWithMatch
 
 ### to.be.returned
 
 ### always.to.be.returned
 
+### to.be.threw
+
+### always.to.be.Threw / to.be.alwaysThrew
 
 ## Running tests 
 

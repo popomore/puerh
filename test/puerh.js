@@ -6,13 +6,11 @@ if (typeof require !== 'undefined') {
   puerh.use('expect');
 }
 
-describe('Puer spy', function() {
+describe('Puerh spy', function() {
   it('should be a spy', function() {
     var spy = sinon.spy();
     expect(spy).to.be.spy();
-  });
 
-  it('should not be a spy', function() {
     expect(null).not.to.be.spy();
     expect(undefined).not.to.be.spy();
     expect(1).not.to.be.spy();
@@ -26,11 +24,57 @@ describe('Puer spy', function() {
     var spy = sinon.spy();
     spy();
     expect(spy).to.be.called();
+    spy();
+    expect(spy).to.be.called();
   });
 
   it('should not be called', function() {
     var spy = sinon.spy();
     expect(spy).not.to.be.called();
+    expect(spy).to.be.notCalled();
+  });
+
+  it('should be called count', function() {
+    var spy = sinon.spy();
+    spy();
+    spy();
+    expect(spy).to.be.called.count(2);
+    expect(spy).to.be.callCount(2);
+    spy();
+    spy();
+    expect(spy).to.be.called.count(4);
+    expect(spy).to.be.callCount(4);
+  });
+
+  it('should be call order', function() {
+    var spy1 = sinon.spy();
+    var spy2 = sinon.spy();
+    var spy3 = sinon.spy();
+    spy1();
+    spy2();
+    spy3();
+    expect(spy1).to.be.called.before(spy2);
+    expect(spy1).to.be.called.before(spy3);
+    expect(spy2).to.be.called.after(spy1);
+    expect(spy3).to.be.called.after(spy1);
+  });
+
+  it('should be called on', function() {
+    var a = {
+      func: function() {}
+    };
+    var global = {};
+    sinon.spy(a, 'func');
+    a.func();
+    a.func.call(global);
+    expect(a.func).to.be.called.on(a);
+    expect(function() {
+      expect(a.func).always.to.be.called.on(a);
+    }).to.throwException();
+    expect(a.func).to.be.calledOn(a);
+    expect(function() {
+      expect(a.func).to.be.alwaysCalledOn(a);
+    }).to.throwException();
   });
 
   it('should be called with args', function() {
@@ -92,34 +136,6 @@ describe('Puer spy', function() {
     spy();
     spy();
     expect(spy).to.be.called.count(4);
-  });
-
-  it('should be called before another spy', function() {
-    var spya = sinon.spy();
-    var spyb = sinon.spy();
-    spya();
-    spyb();
-    expect(spya).to.be.called.before(spyb);
-  });
-
-  it('should be called after another spy', function() {
-    var spya = sinon.spy();
-    var spyb = sinon.spy();
-    spya();
-    spyb();
-    expect(spyb).to.be.called.after(spya);
-  });
-
-  it('should be called on obj', function() {
-    var a = {
-      func: function() {}
-    };
-    var global = {};
-    sinon.spy(a, 'func');
-    a.func();
-    a.func.call(global);
-    expect(a.func).to.be.called.on(a);
-    expect(a.func).not.always.to.be.called.on(a);
   });
 
   it('should be returned', function() {
