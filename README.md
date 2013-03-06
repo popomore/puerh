@@ -41,6 +41,11 @@ Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
 ### to.be.spy
 
+```
+var spy = sinon.spy();
+expect(spy).to.be.spy();
+```
+
 ### to.be.called
 
 ### not.to.be.called / to.be.notCalled
@@ -49,15 +54,20 @@ Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
 ### to.be.called.before
 
+
+`expect(spy1).to.be.called.before(spy2)` same as `sinon.assert.callOrder(spy1, spy2)` 
+
 ### to.be.called.after
+
+`expect(spy1).to.be.called.before(spy2)` same as `sinon.assert.callOrder(spy2, spy1)` 
 
 ### to.be.called.on / to.be.calledOn
 
-### always.to.be.called.on / alwaysCalledOn
+### always.to.be.called.on / to.be.alwaysCalledOn
 
-### to.be.called.withArgs / calledWith
+### to.be.called.withArgs / to.be.calledWith
 
-### to.be.called.match / calledWithMatch
+### to.be.called.match / to.be.calledWithMatch
 
 ### to.be.called.once / to.be.calledOnce
 
@@ -71,7 +81,7 @@ Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
 ### to.be.called.thrice.withArgs
 
-### always.to.be.called.withArgs / alwaysCalledWith
+### always.to.be.called.withArgs / to.be.alwaysCalledWith
 
 ### neverCalledWith
 
@@ -79,7 +89,7 @@ Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
 
 ### alwaysCalledWithExactly
 
-### always.to.be.called.match / alwaysCalledWithMatch
+### always.to.be.called.match / to.be.alwaysCalledWithMatch
 
 ### neverCalledWithMatch
 
