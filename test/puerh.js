@@ -83,7 +83,14 @@ describe('Puerh spy', function() {
     spy(['a', 'b']);
     expect(spy).to.be.called.withArgs('a');
     expect(spy).to.be.called.withArgs(['a', 'b']);
-    expect(spy).not.always.to.be.called.withArgs('a');
+    expect(spy).to.be.calledWith('a');
+    expect(spy).to.be.calledWith(['a', 'b']);
+    expect(function() {
+      expect(spy).always.to.be.called.withArgs('a');
+    }).to.throwException();
+    expect(function() {
+      expect(spy).to.be.alwaysCalledWith('a');
+    }).to.throwException();
   });
 
   it('should not be called with args', function() {
@@ -93,29 +100,35 @@ describe('Puerh spy', function() {
     expect(spy).not.to.be.called.withArgs('b');
   });
 
-  it('should not be called with match args', function() {
+  it('should be called with match args', function() {
     var spy = sinon.spy();
     spy('a');
     spy('b');
     spy('1');
     spy({a: 1, b: 2});
     expect(spy).to.be.called.match(/^[ab]/);
+    expect(spy).to.be.calledWithMatch(/^[ab]/);
     expect(spy).to.be.called.match({a: 1});
+    expect(spy).to.be.calledWithMatch({a: 1});
     expect(spy).to.be.called.match(1);
-    expect(spy).not.always.to.be.called.match(/^[ab]/);
+    expect(spy).to.be.calledWithMatch(1);
   });
 
-  it('should be called some times', function() {
+  it('should be called times', function() {
     var spy1 = sinon.spy();
     spy1('a');
     expect(spy1).to.be.called.once();
+    expect(spy1).to.be.calledOnce();
     expect(spy1).not.to.be.called.twice();
+    expect(spy1).not.to.be.calledTwice();
 
     var spy2 = sinon.spy();
     spy2('a');
     spy2('b');
     expect(spy2).to.be.called.twice();
+    expect(spy2).to.be.calledTwice();
     expect(spy2).not.to.be.called.once();
+    expect(spy2).not.to.be.calledOnce();
 
     var spy3 = sinon.spy();
     spy3('a');
@@ -127,15 +140,7 @@ describe('Puerh spy', function() {
     expect(spy3).to.be.called.once.withArgs('b');
     expect(spy3).not.to.be.called.twice.withArgs('b');
     expect(spy3).to.be.called.thrice.withArgs('c');
-  });
-
-  it('should be called four times', function() {
-    var spy = sinon.spy();
-    spy();
-    spy();
-    spy();
-    spy();
-    expect(spy).to.be.called.count(4);
+    expect(spy3).to.be.calledThrice();
   });
 
   it('should be returned', function() {
