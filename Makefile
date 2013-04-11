@@ -14,7 +14,7 @@ install:
 
 test-node:
 	@echo "start test node"
-	@./node_modules/.bin/mocha
+	@./node_modules/.bin/mocha ./test/puerh.js
 
 test-browser:
 	@echo "start test browser"
