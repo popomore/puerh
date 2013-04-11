@@ -16,3 +16,6 @@ build
 node_modules
 lib/vendor/sinon.js
 support
+sea-modules
+.build
+dist
