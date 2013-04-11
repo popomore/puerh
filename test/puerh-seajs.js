@@ -10,6 +10,6 @@ define(function(require){
     it('expect function', function() {
       expect(puerh.Assertion.prototype.assert).to.be.a('function');
       expect(puerh.Assertion.prototype.ok).to.be.a('function');
-    }); 
+    });
   });
 });

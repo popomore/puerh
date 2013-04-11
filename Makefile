@@ -1,6 +1,7 @@
 test: test-node test-browser test-seajs
 
 install:
+	@npm install
 	@echo "start install"
 	@spm install
 	@rm -rf support
@@ -8,7 +9,6 @@ install:
 	@rm -rf lib/vendor/sinon.js
 	@curl -o lib/vendor/sinon.js http://sinonjs.org/releases/sinon-1.6.0.js
 	@curl -o lib/vendor/expect.js https://raw.github.com/popomore/expect.js/0.2.0/expect.js
-	@npm install
 	@ln -s ../node_modules/mocha/mocha.css support/mocha.css
 	@ln -s ../node_modules/mocha/mocha.js support/mocha.js
 
