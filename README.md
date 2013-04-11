@@ -22,8 +22,7 @@ $ npm install puerh
 Require puerh and use it as expect
 
 ```
-puerh = require('puerh');
-expect = puerh.use('expect');
+var expect = require('puerh');
 ```
 
 ### Browser
@@ -32,9 +31,18 @@ Puerh has contained expectjs, you can use `https://github.com/popomore/puerh/blo
 
     <script src="path/to/sinon.js"></script>
     <script src="path/to/puerh.js"></script>
-    <script>puerh.use('expect');</script>
     <script src="path/to/spec.js"></script>
-    
+
+### use seajs
+
+Puerh return expect instance.
+
+```
+define(function(require) {
+  var expect = require('puerh');
+});
+```
+
 ## API
 
 Same as [sinon assertion](http://sinonjs.org/docs/#assertions)
